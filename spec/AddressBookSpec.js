@@ -1,11 +1,17 @@
 describe('Address Book', function() {
+  // uus AadressBook-i objekt
+  var addressBook,
+    // thisContact objekt antakse edasi
+    thisContact;
+
+  // Jasmine jaoks funktsioon, mis jookseb enne meie igat testi
+  beforeEach(function() {
+    addressBook = new AddressBook();
+    thisContact = new Contact();
+  });
+
   // millist funktsiooni täidab
   it('should be able to add contact', function() {
-    // uus AadressBook-i objekt
-    var addressBook = new AddressBook(),
-      // thisContact objekt antakse edasi
-      thisContact = new Contact();
-
     // kontakti lisamiseks on tarvis uut objekt
     addressBook.addContact(thisContact);
 
@@ -15,11 +21,6 @@ describe('Address Book', function() {
 
   // defineerin uue spek-i it meetodiga
   it('should be able to deleta a contact', function() {
-    // lisan uue AadressBook objekti siia spek-i
-    var addressBook = new AddressBook(),
-      // see on uus objekt, mis antakse edasi
-      thisContact = new Contact();
-
     // lisan kontakti oma addressBook-le
     addressBook.addContact(thisContact);
 
