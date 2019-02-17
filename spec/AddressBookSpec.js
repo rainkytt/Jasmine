@@ -31,3 +31,16 @@ describe('Address Book', function() {
     expect(addressBook.getContact(0)).not.toBeDefined();
   });
 });
+
+// kirjutame uue testi nimega Async Address Book
+describe('Async Address Book', function() {
+  // loome uue spek-i
+  it('should grab initial contacts', function() {
+    var addressBook = new AddressBook();
+
+    // kutsun meetodi getInitialContacts
+    addressBook.getInitialContacts();
+    // et addressBook.initialComplete oleks tõene
+    expect(addressBook.initialComplete).toBe(true);
+  });
+});
