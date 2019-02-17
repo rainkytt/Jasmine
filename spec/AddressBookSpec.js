@@ -34,13 +34,19 @@ describe('Address Book', function() {
 
 // kirjutame uue testi nimega Async Address Book
 describe('Async Address Book', function() {
-  // loome uue spek-i
-  it('should grab initial contacts', function() {
-    var addressBook = new AddressBook();
+  var addressBook = new AddressBook();
 
-    // kutsun meetodi getInitialContacts
-    addressBook.getInitialContacts();
-    // et addressBook.initialComplete oleks tõene
+  // lisame jälle beforeEach funktsiooni ja anname callback-i väärtuseks done
+  beforeEach(function(done) {
+    // kutsume välja done funktsiooni, ehk asünkroonne meetod on nüüd omadega valmis
+    addressBook.getInitialContacts(function() {
+      done();
+    });
+  });
+
+  // anname raamistikule signaali, milline meie testidest jooksis asünkroonse meetodi abil
+  it('should grab initial contacts', function(done) {
     expect(addressBook.initialComplete).toBe(true);
+    done();
   });
 });
